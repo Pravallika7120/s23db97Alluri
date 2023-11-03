@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  p welcome to my second server
+  
+  button(type="button", class="btn btn-primary" onclick="goFaster()") press me
+
+  div#faster Increase the speed
+    a(href="/restaurant") restaurant Search Results
+  script.
+      var mph = 20;
+      var change = 1;
+
+      function goFaster() {
+        mph += change;
+        change += 1;
+        var div = document.getElementById("faster");
+        div.textContent = "MPH " + mph + " with change " + change;
+      }
