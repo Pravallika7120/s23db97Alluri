@@ -19,3 +19,30 @@ res.send('NOT IMPLEMENTED: restaurant delete DELETE ' + req.params.id);
 exports.restaurant_update_put = function(req, res) {
 res.send('NOT IMPLEMENTED: restaurant update PUT' + req.params.id);
 };
+
+
+// List of all restaurant
+exports.restaurant_list = async function(req, res) {
+    try{
+    therestaurant = await restaurant.find();
+    res.send(therestaurant);
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+    };
+
+// VIEWS
+// Handle a show all view
+exports.restaurant_view_all_Page = async function(req, res) {
+try{
+therestaurant = await restaurant.find();
+res.render('restaurant', { title: 'restaurant Search Results', results: therestaurant });
+}
+catch(err){
+res.status(500);
+res.send(`{"error": ${err}}`);
+}
+};
+    
