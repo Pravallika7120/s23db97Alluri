@@ -45,4 +45,24 @@ res.status(500);
 res.send(`{"error": ${err}}`);
 }
 };
-    
+
+// Handle restaurant create on POST.
+exports.restaurant_create_post = async function(req, res) {
+console.log(req.body)
+let document = new restaurant();
+// We are looking for a body, since POST does not have query parameters.
+// Even though bodies can be in many different formats, we will be picky
+// and require that it be a json object
+//{"name":"korry leaves","place":"kansas","bill":7000}
+document.restaurant_type = req.body.restaurant_type;
+document.cost = req.body.cost;
+document.size = req.body.size;
+try{
+let result = await document.save();
+res.send(result);
+}
+catch(err){
+res.status(500);
+res.send(`{"error": ${err}}`);
+}
+};
