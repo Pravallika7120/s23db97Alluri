@@ -3,12 +3,26 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+require('dotenv').config();
+const connectionString =
+process.env.MONGO_CON
+mongoose = require('mongoose');
+mongoose.connect(connectionString);
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var restaurantRouter = require('./routes/restaurant');
 var boardRouter = require('./routes/board');
 var chooseRouter = require('./routes/choose');
+var resourceRouter = require('./routes/resource');
+//Get the default connection
+var db = mongoose.connection;
+//Bind connection to error event
+db.on('error', console.error.bind(console, 'MongoDB connectionerror:'));
+db.once("open", function(){
+console.log("Connection to DB succeeded")});
+
+var restaurant = require("./models/restaurant");
 var app = express();
 
 // view engine setup
@@ -26,6 +40,7 @@ app.use('/users', usersRouter);
 app.use('/restaurant', restaurantRouter);
 app.use('/board', boardRouter);
 app.use('/choose', chooseRouter);
+app.use('/resource', resourceRouter);
 
 
 // catch 404 and forward to error handler
@@ -45,3 +60,35 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+// We can seed the collection if needed on server start
+async function recreateDB(){
+// Delete everything
+await restaurant.deleteMany();
+let instance1 = new
+restaurant({name:"A&G", place:"Maryville", bill:2000});
+instance1.save().then(doc=>{
+console.log("First object1 saved")}
+).catch(err=>{
+ console.error(err)
+});
+}
+let reseed = true;
+if (reseed) {recreateDB();}
+
+let instance2 = new
+restaurant({name:"korry leaves", place:"kansas", bill:7000});
+instance2.save().then(doc=>{
+console.log("First object2 saved")}
+).catch(err=>{
+ console.error(err)
+});
+
+
+let instance3 = new
+restaurant({name:"bawarchi", place:"St.joe", bill:5000});
+instance3.save().then(doc=>{
+console.log("First object3 saved")}
+).catch(err=>{
+ console.error(err)
+});
