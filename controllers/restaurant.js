@@ -54,9 +54,9 @@ let document = new restaurant();
 // Even though bodies can be in many different formats, we will be picky
 // and require that it be a json object
 //{"name":"korry leaves","place":"kansas","bill":7000}
-document.restaurant_type = req.body.restaurant_type;
-document.cost = req.body.cost;
-document.size = req.body.size;
+document.name = req.body.name;
+document.place = req.body.place;
+document.bill = req.body.bill;
 try{
 let result = await document.save();
 res.send(result);
