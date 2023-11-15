@@ -18,12 +18,7 @@ router.get('/restaurant/:id', restaurant_controller.restaurant_detail);
 // GET request for list of all restaurant items.
 router.get('/restaurant', restaurant_controller.restaurant_list);
 module.exports = router;
-// API for our resources
-exports.api = function(req, res) {
-res.write('[');
-res.write('{"resource":"restaurant", ');
-res.write(' "verbs":["GET","PUT", "DELETE"] ');
-res.write('}');
-res.write(']')
-res.send();
-};
+
+
+
+

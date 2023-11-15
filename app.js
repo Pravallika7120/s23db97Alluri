@@ -15,6 +15,7 @@ var restaurantRouter = require('./routes/restaurant');
 var boardRouter = require('./routes/board');
 var chooseRouter = require('./routes/choose');
 var resourceRouter = require('./routes/resource');
+
 //Get the default connection
 var db = mongoose.connection;
 //Bind connection to error event
