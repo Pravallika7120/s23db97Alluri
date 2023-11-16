@@ -1,5 +1,6 @@
 body {
   padding: 50px;
+  background-color: chartreuse;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -12,3 +13,24 @@ a {
   width: 120px;
   }
   
+  .form-control {
+    background-color: rgb(200, 31, 238);
+    font: 14px "Garamond", Helvetica, Arial, Sans-serif;
+    width: 300px;
+    }
+  
+    .form-group {
+      font: 30px "Garamond", Helvetica, Arial, Sans-serif;
+      width: 300px;
+      }
+    
+      .btn-primary{
+
+        background-color: rgb(229, 142, 43);
+        color: rgba(255, 255, 255, 0);
+        padding: 20px 38px;
+        text-align: center;
+        text-decoration: rgb(96, 207, 244);
+        display: inline-block;
+        font-size: 18px;
+      }
