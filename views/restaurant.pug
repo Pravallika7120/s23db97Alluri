@@ -5,15 +5,17 @@ block content
   - let items = results
   div(class="container-fluid")
     div(class="row m-1")
-      each v,index  in results 
+      each v, index in results 
         - let destination = `dispatch(\"/restaurant/update?id=${v._id}\")`
-        div(class="col-sm-2" class="m-1"  onclick =`buy(${index})`) #{v.name}, #{v.place}, #{v.bill}
-          button.btn( class="btn-primary ml-1", onclick= destination) Update
+        div(class="col-sm-2" class="m-1") 
+          | #{v.name}, #{v.place}, #{v.bill}
+          button.btn(class="btn-primary ml-1", onclick=destination) Update
     
   script.
     function dispatch(path){
-            window.location.href=path
-        }
+      window.location.href = path
+    }
+
     
 
 
