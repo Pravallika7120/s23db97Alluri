@@ -1,22 +1,12 @@
 extends layout
 
 block content
-  p welcome to my server
-  p welcome to Alluri Pravallika server 
-  <br>
-  <br>
-
- 
-    if (!user)
-      a(href="/login") Login
-      br
-      a(href="/register") Register
-    if (user)
-      p You are currently logged in as #{user.username}
-      a(href="/restaurant") Take me to restaurant
-      br
-      a(href="/logout") Logout
-      br
-   
-  br
-  button(type="button", class="btn btn-primary", onclick="gofaster()") press me
+  if (!user)
+    a(href="/login") Login
+    br
+    a(href="/register") Register
+  if (user)
+    p You are currently logged in as #{user.username}
+    a(href="/restaurant") Take me to Vehicles
+    br
+    a(href="/logout") Logout
