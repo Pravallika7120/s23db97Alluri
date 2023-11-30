@@ -105,7 +105,7 @@ async function recreateDB(){
 // Delete everything
 await restaurant.deleteMany();
 let instance1 = new
-restaurant({name:"A&G", place:"Maryville", bill:2000});
+restaurant({name:"AandG", place:"Maryville", bill:2000});
 instance1.save().then(doc=>{
 console.log("First object1 saved")}
 ).catch(err=>{
@@ -116,7 +116,7 @@ let reseed = true;
 if (reseed) {recreateDB();}
 
 let instance2 = new
-restaurant({name:"korry leaves", place:"kansas", bill:7000});
+restaurant({name:"korry", place:"kansas", bill:7000});
 instance2.save().then(doc=>{
 console.log("First object2 saved")}
 ).catch(err=>{
@@ -125,7 +125,7 @@ console.log("First object2 saved")}
 
 
 let instance3 = new
-restaurant({name:"bawarchi", place:"St.joe", bill:5000});
+restaurant({name:"bawarchi", place:"Stjoe", bill:5000});
 instance3.save().then(doc=>{
 console.log("First object3 saved")}
 ).catch(err=>{
